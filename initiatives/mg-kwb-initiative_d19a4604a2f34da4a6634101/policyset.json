@@ -1,0 +1,60 @@
+{
+ "properties": {
+  "displayName": "mg-kwb-initiative",
+  "policyType": "Custom",
+  "metadata": {
+   "category": "Governance",
+   "createdBy": "00556eb6-bdde-4637-8e98-55338335371b",
+   "createdOn": "2022-09-01T09:34:04.5278817Z",
+   "updatedBy": null,
+   "updatedOn": null
+  },
+  "parameters": {},
+  "policyDefinitions": [
+   {
+    "policyDefinitionReferenceId": "Require tag and value on resource groups_1",
+    "policyDefinitionId": "/subscriptions/bc53b98c-93c2-4b81-bc6f-cc056a5b9a1f/providers/Microsoft.Authorization/policyDefinitions/4592bacb-67b5-4849-9771-0c9b044801ff",
+    "parameters": {
+     "tagName": {
+      "value": "Owner"
+     }
+    },
+    "groupNames": [
+     "TagGroup"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Require tag and value on resource groups_2",
+    "policyDefinitionId": "/subscriptions/bc53b98c-93c2-4b81-bc6f-cc056a5b9a1f/providers/Microsoft.Authorization/policyDefinitions/4592bacb-67b5-4849-9771-0c9b044801ff",
+    "parameters": {
+     "tagName": {
+      "value": "Project"
+     }
+    },
+    "groupNames": [
+     "TagGroup"
+    ]
+   },
+   {
+    "policyDefinitionReferenceId": "Append a tag and its value from the resource group_1",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/9ea02ca2-71db-412d-8b00-7c7ca9fcd32d",
+    "parameters": {
+     "tagName": {
+      "value": "Owner"
+     }
+    },
+    "groupNames": [
+     "TagGroup"
+    ]
+   }
+  ],
+  "policyDefinitionGroups": [
+   {
+    "name": "TagGroup"
+   }
+  ]
+ },
+ "id": "/subscriptions/bc53b98c-93c2-4b81-bc6f-cc056a5b9a1f/providers/Microsoft.Authorization/policySetDefinitions/d19a4604a2f34da4a6634101",
+ "type": "Microsoft.Authorization/policySetDefinitions",
+ "name": "d19a4604a2f34da4a6634101"
+}

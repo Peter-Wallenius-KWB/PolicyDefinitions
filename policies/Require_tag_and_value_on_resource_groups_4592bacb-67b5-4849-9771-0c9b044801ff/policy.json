@@ -1,0 +1,52 @@
+{
+ "properties": {
+  "displayName": "Require tag and value on resource groups",
+  "policyType": "Custom",
+  "mode": "All",
+  "description": "Enforces existence of a tag on resource groups.",
+  "metadata": {
+   "category": "Tags",
+   "createdBy": "00556eb6-bdde-4637-8e98-55338335371b",
+   "createdOn": "2022-08-29T07:12:40.2847241Z",
+   "updatedBy": "00556eb6-bdde-4637-8e98-55338335371b",
+   "updatedOn": "2022-08-29T07:58:56.2566615Z"
+  },
+  "parameters": {
+   "tagName": {
+    "type": "String",
+    "metadata": {
+     "displayName": "Tag Name",
+     "description": "Name of the tag, such as 'environment'"
+    }
+   }
+  },
+  "policyRule": {
+   "if": {
+    "allOf": [
+     {
+      "field": "type",
+      "equals": "Microsoft.Resources/subscriptions/resourceGroups"
+     },
+     {
+      "anyOf": [
+       {
+        "field": "[concat('tags[', parameters('tagName'), ']')]",
+        "exists": false
+       },
+       {
+        "field": "[concat('tags[', parameters('tagName'), ']')]",
+        "equals": ""
+       }
+      ]
+     }
+    ]
+   },
+   "then": {
+    "effect": "deny"
+   }
+  }
+ },
+ "id": "/subscriptions/bc53b98c-93c2-4b81-bc6f-cc056a5b9a1f/providers/Microsoft.Authorization/policyDefinitions/4592bacb-67b5-4849-9771-0c9b044801ff",
+ "type": "Microsoft.Authorization/policyDefinitions",
+ "name": "4592bacb-67b5-4849-9771-0c9b044801ff"
+}
